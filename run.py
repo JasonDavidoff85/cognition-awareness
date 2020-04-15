@@ -11,6 +11,9 @@ time.sleep(1)
 while board.checkIfWin != True:
 	barry.makeMove()
 	board.printBoard()
+	if board.isFull():
+		board.clear()
+		board.printBoard()
 	time.sleep(1)
 	allan.makeMove()
 	board.printBoard()
@@ -18,7 +21,3 @@ while board.checkIfWin != True:
 	if board.isFull():
 		board.clear()
 		board.printBoard()
-
-
-board.printBoard()
-print("Game Over")
