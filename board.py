@@ -29,6 +29,18 @@ gaps = {
 	(2,2): [(0,0),(0,2),(2,0)]
 }
 
+corners = {
+	(0,0): True,
+	(1,0): False,
+	(2,0): True,
+	(0,1): False,
+	(1,1): False,
+	(2,1): False,
+	(0,2): True,
+	(1,2): False,
+	(2,2): True
+}
+
 def printBoard():
 	for i in range(0,3):
 		print(game[i][0],"|",game[i][1],"|",game[i][2])
@@ -85,6 +97,9 @@ def isFull():
 		for j in i:
 			full = full and j != 0
 	return full
+
+def isCorner(coords):
+	return corners[coords]
 
 def getPerimiter(coords):
 	return moves[coords]
