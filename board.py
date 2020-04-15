@@ -60,11 +60,15 @@ def checkIfWin(value):
 	top = (getValue((0,0)) == getValue((1,0)) == getValue((2,0)) == value)
 	middle = (getValue((0,1)) == getValue((1,1)) == getValue((2,1)) == value)
 	bottom = (getValue((0,2)) == getValue((1,2)) == getValue((2,2)) == value)
-	left = (getValue((0,1)) == getValue((0,1)) == getValue((0,2)) == value)
-	center = (getValue((1,1)) == getValue((1,1)) == getValue((1,2)) == value)
-	right = (getValue((2,1)) == getValue((2,1)) == getValue((2,2)) == value)
+	left = (getValue((0,0)) == getValue((0,1)) == getValue((0,2)) == value)
+	center = (getValue((1,0)) == getValue((1,1)) == getValue((1,2)) == value)
+	right = (getValue((2,0)) == getValue((2,1)) == getValue((2,2)) == value)
 	diag1 = (getValue((0,0)) == getValue((1,1)) == getValue((2,2)) == value)
 	diag2 = (getValue((2,0)) == getValue((1,1)) == getValue((0,2)) == value)
+	rows = [top, middle, bottom, left, center, right, diag1, diag2]
+	if top or middle or bottom or left or center or right or diag1 or diag2:
+		for i in rows:
+			print(i)
 	return top or middle or bottom or left or center or right or diag1 or diag2
 
 
