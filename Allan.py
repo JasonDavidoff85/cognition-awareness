@@ -15,7 +15,7 @@ class Allan:
 		for x in range(0,3):
 			for y in range(0,3):
 				if (board.isOpen((x,y)) == False):
-					print(x,y,"is not open")
+					#print(x,y,"is not open")
 					for adjacent in board.getPerimiter((x,y)):
 						if board.getValue((x,y)) == board.getValue(adjacent):
 							print("Found two next to each other:",(x,y),adjacent)
@@ -36,8 +36,8 @@ class Allan:
 					leastBest.add((x,y))
 
 		print("best:",bestMoves)
-		print("next best:",nextBest)
-		print("least best:",leastBest)
+		print("next best:",nextBest,"\n")
+		#print("least best:",leastBest)
 		bestMoves = list(bestMoves)
 		nextBest = list(nextBest)
 		leastBest = list(leastBest)
