@@ -1,7 +1,7 @@
 import board
 import random
 
-class Allan:
+class Barry:
 	def __init__(self, value):
 		self.value = value
 		if board.isEmpty():
@@ -20,13 +20,13 @@ class Allan:
 					#print(x,y,"is not open")
 					for adjacent in board.getPerimiter((x,y)):
 						if board.getValue((x,y)) == board.getValue(adjacent):
-							print("Allan: Found two next to each other:",(x,y),adjacent)
+							print("Barry: Found two next to each other:",(x,y),adjacent)
 							bestSpace = self.getRemainingSpace((x,y),adjacent)
 							if board.isValidMove(bestSpace):
 								bestMoves.add(bestSpace)
 					for gap in board.getGaps((x,y)):
 						if board.getValue((x,y)) == board.getValue(gap):
-							print("Allan: Found gap:", (x,y), gap)
+							print("Barry: Found gap:", (x,y), gap)
 							bestSpace = self.getRemainingSpace((x,y),gap)
 							if board.isValidMove(bestSpace):
 								bestMoves.add(bestSpace)
@@ -37,8 +37,8 @@ class Allan:
 				if board.isOpen((x,y)):
 					leastBest.add((x,y))
 
-		print("Allan: best:",bestMoves)
-		print("Allan: next best:",nextBest,"\n")
+		print("Barry: best:",bestMoves)
+		print("Barry: next best:",nextBest,"\n")
 		#print("least best:",leastBest)
 		bestMoves = list(bestMoves)
 		nextBest = list(nextBest)

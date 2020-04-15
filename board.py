@@ -42,7 +42,10 @@ def move(coords,value):
 	y = coords[1]
 	if (((0 <= x < 3) and (0 <= y < 3))) and (game[y][x] == 0):
 		game[y][x] = value
-		checkIfWin()
+		if checkIfWin(value):
+			print(value, "wins!")
+			printBoard()
+			exit(0)
 		return True
 	else:
 		print("Not a valid move")
@@ -53,15 +56,15 @@ def isValidMove(coords):
 	y = coords[1]
 	return game[y][x] == 0
 
-def checkIfWin():
-	top = getValue((0,0)) == getValue((1,0)) == getValue((2,0))
-	middle = getValue((0,1)) == getValue((1,1)) == getValue((2,1))
-	bottom = getValue((0,2)) == getValue((1,2)) == getValue((2,2))
-	left = getValue((0,1)) == getValue((0,1)) == getValue((0,2))
-	center = getValue((1,1)) == getValue((1,1)) == getValue((1,2))
-	right = getValue((2,1)) == getValue((2,1)) == getValue((2,2))
-	diag1 = getValue((0,0)) == getValue((1,1)) == getValue((2,2))
-	diag2 = getValue((2,0)) == getValue((1,1)) == getValue((0,2))
+def checkIfWin(value):
+	top = (getValue((0,0)) == getValue((1,0)) == getValue((2,0)) == value)
+	middle = (getValue((0,1)) == getValue((1,1)) == getValue((2,1)) == value)
+	bottom = (getValue((0,2)) == getValue((1,2)) == getValue((2,2)) == value)
+	left = (getValue((0,1)) == getValue((0,1)) == getValue((0,2)) == value)
+	center = (getValue((1,1)) == getValue((1,1)) == getValue((1,2)) == value)
+	right = (getValue((2,1)) == getValue((2,1)) == getValue((2,2)) == value)
+	diag1 = (getValue((0,0)) == getValue((1,1)) == getValue((2,2)) == value)
+	diag2 = (getValue((2,0)) == getValue((1,1)) == getValue((0,2)) == value)
 	return top or middle or bottom or left or center or right or diag1 or diag2
 
 
