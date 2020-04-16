@@ -60,9 +60,17 @@ class Allan:
 			else:
 				board.move(random.choice(leastBest), self.value)
 		elif len(bestMoves) == 0 and len(nextBest) == 0:
-			board.move(random.choice(okay), self.value)
+			reccomended = [i for i in okay if board.isCorner(i)]
+			if len(reccomended) > 0:
+				board.move(random.choice(reccomended), self.value)
+			else:
+				board.move(random.choice(okay), self.value)
 		elif len(bestMoves) == 0:
-			board.move(random.choice(nextBest), self.value)
+			reccomended = [i for i in nextBest if board.isCorner(i)]
+			if len(reccomended) > 0:
+				board.move(random.choice(reccomended), self.value)
+			else:
+				board.move(random.choice(nextBest), self.value)
 		elif len(bestMoves) > 0:
 			board.move(random.choice(bestMoves), self.value)
 		else:
