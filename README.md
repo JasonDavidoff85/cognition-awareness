@@ -1,2 +1,2 @@
 # cognition-awareness
-just do python run.py
+just run run.py
